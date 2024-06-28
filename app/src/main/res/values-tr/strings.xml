@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zeka Oyunu</string>
+    <string name="start">Başlat</string>
+
+    <string name="adLoading">Reklam yükleniyor, Lütfen bekleyin</string>
+    <string name="adLoadingError">Reklam yüklenemedi</string>
+    <string name="adLoadingComplete">Reklam yüklendi, tekrar tıklayın</string>
+
+    <string name="coinOrBonusComplete">Ürün verildi</string>
+
+    <string name="unknownError">Bir hata oluştu, daha sonra tekrar deneyin</string>
+
+    <string name="rating">DEĞERLENDİRME</string>
+    <string name="commentQuestion">Görüşlerin bizim için önemli. Uygulamamızı değerlendirmek ister misin ? :)</string>
+
+    <string name="buyCoinForGame">Lütfen devam etmek için jeton alın</string>
+
+    <string name="watch">İzle Kazan</string>
+    <string name="addcoin_one">+1 JETON</string>
+    <string name="addcoin_three">+3 JETON</string>
+    <string name="addcoin_new_question">+1 YENİ SORU</string>
+    <string name="addcoin_Half">+1 50:50</string>
+    <string name="addcoin_addtime">+1 +ZAMAN</string>
+    <string name="addcoin_stoptime">+1 ZAMANI DURDUR</string>
+    <string name="addcoin_all">5 JETON x5 BONUS</string>
+    <string name="correctAnswer">DOĞRU CEVAP</string>
+    <string name="wrongAnswer">YANLIŞ CEVAP</string>
+    <string name="timeOver">SÜRE BİTTİ</string>
+    <string name="exit">ÇIKIŞ</string>
+    <string name="delete">SİL</string>
+    <string name="bonus">BONUS</string>
+    <string name="coin">JETON</string>
+    <string name="buy">SATIN AL</string>
+    <string name="game">OYUN</string>
+    <string name="newGame">Yeni oyun ?</string>
+    <string name="nextQuestion">Bir sonraki soru ?</string>
+    <string name="bonusAvailable">Bonus mevcut</string>
+    <string name="coinAvailable">Jeton mevcut</string>
+    <string name="coinNotFound">Jeton kalmadı</string>
+    <string name="returnMainMenu">Anamenüye dönmek istiyor musunuz ?</string>
+    <string name="closeApplication">Uygulamayı kapatmak istiyor musunuz ?</string>
+    <string name="levelResetQuestion">Leveli silmek istiyor musunuz ?</string>
+    <string name="bonusUnlocked">Bonus kilidi açıldı</string>
+    <string name="marketOpen">Market açıldı</string>
+    <string name="startGameQuestion">Oyunu başlatmak istiyor musunuz?</string>
+    <string name="customMode">Özel mod</string>
+    <string name="tryAgain">Tekrar denemek ister misiniz ?</string>
+    <string name="confirmStart">Başlatmak için onaylayın</string>
+    <string name="useBonusQuestion">Bonus kullanmak ister misiniz ?</string>
+
+    <string name="alertTitle3_Coin_2">JETON AZALACAK</string>
+    <string name="alertTitle3_Exit">Evet -> Çıkış</string>
+    <string name="alertTitle3_Restart">Oyun sıfırlanacak</string>
+    <string name="alertTitle3_SelectBonus">Lütfen bonus seçin</string>
+    <string name="selectProduct">Lütfen almak istediğiniz ürünü seçin</string>
+    <string name="alertTitle3_Game">Evet -> Başlat</string>
+    <string name="customleveltitle">Seviye</string>
+    <string name="customimageandtext">Resimli ve Yazılı Soru</string>
+    <string name="imagequestion">Resimli Soru</string>
+    <string name="textquestion">Yazılı Soru</string>
+
+    <string name="showSpeed">Gösterim Hızı</string>
+    <string name="showRange">Gösterim Sayısı</string>
+
+    <string name="type_color">Renk</string>
+    <string name="type_symbol">Sembol</string>
+    <string name="type_vegetable">Sebze</string>
+    <string name="type_fruit">Meyve</string>
+    <string name="type_animal">Hayvan</string>
+    <string name="type_vehicle">Taşıt</string>
+    <string name="type_logo">Logo</string>
+    <string name="type_object">Eşya</string>
+    <string name="type_letter">Harf</string>
+    <string name="type_number">Sayı</string>
+    <string name="type_mathsymbol">Mat. Sembolü</string>
+    <string name="type_character">Yazı Sembolü</string>
+    <string name="type_random">Rastgele</string>
+
+    <string name="mode_level">Level</string>
+    <string name="mode_custom">Özel</string>
+
+
+
+    <string name="colors_white">Beyaz</string>
+    <string name="colors_black">Siyah</string>
+    <string name="colors_red">Kırmızı</string>
+    <string name="colors_green">Yeşil</string>
+    <string name="colors_blue">Mavi</string>
+    <string name="colors_yellow">Sarı</string>
+    <string name="colors_purple">Mor</string>
+    <string name="colors_orange">Turuncu</string>
+    <string name="colors_gray">Gri</string>
+    <string name="colors_brown">Kahverengi</string>
+    <string name="difficulty_easy">Kolay</string>
+    <string name="difficulty_medium">Orta</string>
+    <string name="difficulty_hard">Zor</string>
+    <string name="difficulty_custom">Özel</string>
+    <string name="alertTitle3_Coin_3">JETON BİTECEK</string>
+    <string name="alertTitle3_Coin_4">JETON EKSİLMEYECEK</string>
+    <string name="thanksForComment">Görüşün için teşekkürler :)</string>
+    <string name="available">Mevcut</string>
+
+    <string name="moreAppTitle">Diğer Uygulamalar</string>
+    <string name="isShowMoreApp">Geliştirdiğimiz diğer uygulamaları görmek ister misiniz?</string>
+    <string name="goToNewTab">Harici bir bağlantı açılacak</string>
+
+</resources>

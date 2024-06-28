@@ -1,0 +1,516 @@
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="com.mobilesoftware.zekaoyunu.domain.enums.game.settings.GameType" />
+        <variable name="customViewModel" type="com.mobilesoftware.zekaoyunu.presentation.custom.CustomViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_image"
+        tools:context=".presentation.custom.CustomFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnStartCustomGame"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/customScreenGroupBox">
+
+                    <TextView
+                        style="@style/typeTitle"
+                        android:text="@string/customleveltitle" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintDifficulty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal"
+                        android:visibility="@{customViewModel.getDifficultyVisibility ? View.VISIBLE : View.GONE}">
+
+                        <SeekBar
+                            android:id="@+id/seekBarDifficulty"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:clickable="false"
+                            android:duplicateParentState="false"
+                            android:fadeScrollbars="false"
+                            android:filterTouchesWhenObscured="false"
+                            android:fitsSystemWindows="false"
+                            android:indeterminate="false"
+                            android:max="2"
+                            android:progress="@{customViewModel.getDifficultyProgress}"
+                            android:onProgressChanged="@{(view, progress, fromUser) -> customViewModel.changeDifficultyProgress(progress)}"
+                            android:progressDrawable="@drawable/shape_custom_seekbar"
+                            android:soundEffectsEnabled="false"
+                            android:thumbTint="#03A9F4"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/guideDifficulty"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideDifficulty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.7" />
+
+                        <TextView
+                            android:id="@+id/txtDifficulty"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{customViewModel.difficultyProgress == 0 ? @string/difficulty_easy : customViewModel.difficultyProgress == 1 ? @string/difficulty_medium : @string/difficulty_hard}"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/guideDifficulty"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <Switch
+                        android:id="@+id/switchCustomDifficulty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:buttonTint="#03A9F4"
+                        android:checked="@{customViewModel.getCustomSwitchChecked}"
+                        android:onCheckedChanged="@{(view, isChecked) -> customViewModel.changeCustomSwitchEnabed(isChecked)}"
+                        android:switchPadding="25dp"
+                        android:text="@string/difficulty_custom"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:thumb="@drawable/shape_custom_switch_thumb"
+                        android:track="@drawable/shape_custom_switch_track"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                    <LinearLayout
+                        android:id="@+id/linearCustom"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="@{customViewModel.getCustomVisibility ? View.VISIBLE : View.GONE}">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="@string/showSpeed"
+                                android:textColor="#000000"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="horizontal">
+
+                                <SeekBar
+                                    android:id="@+id/seekBarShowSpeed"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="5dp"
+                                    android:max="6"
+                                    android:progress="@{customViewModel.getShowSpeedProgress}"
+                                    android:onProgressChanged="@{(view, progress, fromUser) -> customViewModel.changeShowSpeed(progress)}"
+                                    android:progressDrawable="@drawable/shape_custom_seekbar"
+                                    android:thumbTint="#03A9F4"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/guideShowSpeed"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/guideShowSpeed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    app:layout_constraintGuide_percent="0.8" />
+
+                                <TextView
+                                    android:id="@+id/txtShowSpeed"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{customViewModel.getShowSpeedText}"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="20sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@+id/guideShowSpeed"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="@string/showRange"
+                                android:textColor="#000000"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <SeekBar
+                                    android:id="@+id/seekBarShowRange"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="5dp"
+                                    android:max="6"
+                                    android:progress="@{customViewModel.getShowRangeProgress}"
+                                    android:onProgressChanged="@{(view, progress, fromUser) -> customViewModel.changeShowRange(progress)}"
+                                    android:progressDrawable="@drawable/shape_custom_seekbar"
+                                    android:thumbTint="#03A9F4"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/guideShowRange"
+                                    app:layout_constraintStart_toEndOf="@+id/guideShowRange"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/guideShowRange"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    app:layout_constraintGuide_percent="0.8" />
+
+                                <TextView
+                                    android:id="@+id/txtShowRange"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{customViewModel.showRangeText}"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="20sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@+id/guideShowRange"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/customScreenGroupBox"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        style="@style/typeTitle"
+                        android:text="@string/imagequestion" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/guideTypeImageFirst"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RadioButton
+                                android:id="@+id/rdColor"
+                                style="@style/gameTypeRadioButtons"
+                                android:checked="@{customViewModel.gameType == GameType.COLOR ? true : false}"
+                                android:drawableTop="@drawable/custom_colors"
+                                android:text="@string/type_color"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.COLOR)}"
+                                android:tag="@{GameType.COLOR}"/>
+
+                            <RadioButton
+                                android:id="@+id/rdSymbol"
+                                style="@style/gameTypeRadioButtons"
+                                android:layout_marginTop="5dp"
+                                android:drawableTop="@drawable/custom_symbols"
+                                android:text="@string/type_symbol"
+                                android:checked="@{customViewModel.gameType == GameType.SYMBOL ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.SYMBOL)}"
+                                android:tag="@{GameType.SYMBOL}"/>
+
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideTypeImageFirst"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.33" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/guideTypeImageSecond"
+                            app:layout_constraintStart_toStartOf="@+id/guideTypeImageFirst"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RadioButton
+                                android:id="@+id/rdVegetable"
+                                style="@style/gameTypeRadioButtons"
+                                android:drawableTop="@drawable/custom_vegetables"
+                                android:text="@string/type_vegetable"
+                                android:checked="@{customViewModel.gameType == GameType.VEGETABLE ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.VEGETABLE)}"
+                                android:tag="@{GameType.VEGETABLE}"/>
+
+                            <RadioButton
+                                android:id="@+id/rdFruit"
+                                style="@style/gameTypeRadioButtons"
+                                android:layout_marginTop="5dp"
+                                android:drawableTop="@drawable/custom_fruits"
+                                android:text="@string/type_fruit"
+                                android:checked="@{customViewModel.gameType == GameType.FRUIT ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.FRUIT)}"
+                                android:tag="@{GameType.FRUIT}" />
+
+                            <RadioButton
+                                android:id="@+id/rdAnimal"
+                                style="@style/gameTypeRadioButtons"
+                                android:layout_marginTop="5dp"
+                                android:drawableTop="@drawable/custom_animals"
+                                android:text="@string/type_animal"
+                                android:checked="@{customViewModel.gameType == GameType.ANIMAL ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.ANIMAL)}"
+                                android:tag="@{GameType.ANIMAL}"  />
+
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideTypeImageSecond"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.66" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/guideTypeImageSecond"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RadioButton
+                                android:id="@+id/rdVehicle"
+                                style="@style/gameTypeRadioButtons"
+                                android:drawableTop="@drawable/custom_vehicles"
+                                android:text="@string/type_vehicle"
+                                android:checked="@{customViewModel.gameType == GameType.VEHICLE ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.VEHICLE)}"
+                                android:tag="@{GameType.VEHICLE}"  />
+
+                            <RadioButton
+                                android:id="@+id/rdLogo"
+                                style="@style/gameTypeRadioButtons"
+                                android:layout_marginTop="5dp"
+                                android:drawableTop="@drawable/custom_carlogos"
+                                android:text="@string/type_logo"
+                                android:checked="@{customViewModel.gameType == GameType.LOGO ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.LOGO)}"
+                                android:tag="@{GameType.LOGO}"  />
+
+                            <RadioButton
+                                android:id="@+id/rdObject"
+                                style="@style/gameTypeRadioButtons"
+                                android:layout_marginTop="5dp"
+                                android:drawableTop="@drawable/custom_goods"
+                                android:text="@string/type_object"
+                                android:checked="@{customViewModel.gameType == GameType.OBJECT ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.OBJECT)}"
+                                android:tag="@{GameType.OBJECT}"  />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/customScreenGroupBox"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        style="@style/typeTitle"
+                        android:text="@string/textquestion" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/guideTypeWrite"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RadioButton
+                                android:id="@+id/rdLetter"
+                                style="@style/gameTypeRadioButtons"
+                                android:drawableTop="@drawable/custom_letters"
+                                android:text="@string/type_letter"
+                                android:checked="@{customViewModel.gameType == GameType.LETTER ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.LETTER)}"
+                                android:tag="@{GameType.LETTER}"  />
+
+                            <RadioButton
+                                android:id="@+id/rdNumber"
+                                style="@style/gameTypeRadioButtons"
+                                android:layout_marginTop="5dp"
+                                android:drawableTop="@drawable/custom_numbers"
+                                android:text="@string/type_number"
+                                android:checked="@{customViewModel.gameType == GameType.NUMBER ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.NUMBER)}"
+                                android:tag="@{GameType.NUMBER}" />
+
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideTypeWrite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/guideTypeWrite"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RadioButton
+                                android:id="@+id/rdMathSymbol"
+                                style="@style/gameTypeRadioButtons"
+                                android:drawableTop="@drawable/custom_mathsymbols"
+                                android:text="@string/type_mathsymbol"
+                                android:checked="@{customViewModel.gameType == GameType.MATHSYMBOL ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.MATHSYMBOL)}"
+                                android:tag="@{GameType.MATHSYMBOL}" />
+
+                            <RadioButton
+                                android:id="@+id/rdCharacter"
+                                style="@style/gameTypeRadioButtons"
+                                android:layout_marginTop="5dp"
+                                android:drawableTop="@drawable/custom_writesymbols"
+                                android:text="@string/type_character"
+                                android:checked="@{customViewModel.gameType == GameType.CHARACTER ? true : false}"
+                                android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.CHARACTER)}"
+                                android:tag="@{GameType.CHARACTER}" />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/customScreenGroupBox"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        style="@style/typeTitle"
+                        android:text="@string/customimageandtext" />
+
+                    <RadioButton
+                        android:id="@+id/rdRandom"
+                        style="@style/gameTypeRadioButtons"
+                        android:layout_gravity="center"
+                        android:drawableTop="@drawable/custom_random"
+                        android:text="@string/type_random"
+                        android:checked="@{customViewModel.gameType == GameType.RANDOM ? true : false}"
+                        android:onCheckedChanged="@{(view, isChecked) -> customViewModel.typeSelected(isChecked, GameType.RANDOM)}"
+                        android:tag="@{GameType.RANDOM}"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/btnStartCustomGame"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="#03A9F4"
+            android:text="@string/start"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:onClick="@{() -> customViewModel.startGameClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,115 @@
+<resources>
+
+    <string name="app_name">Mind Game</string>
+
+    <string name="start">Start</string>
+
+    <string name="adLoading">Ad loading, please wait</string>
+    <string name="adLoadingError">Ad failed to load</string>
+    <string name="adLoadingComplete">Ad loaded, click again</string>
+
+    <string name="coinOrBonusComplete">Product given</string>
+
+    <string name="unknownError">An error occurred, try again later</string>
+
+    <string name="rating">RATING</string>
+    <string name="commentQuestion">Your feedback is important to us. Would you like to rate our app? :)</string>
+
+    <string name="buyCoinForGame">Please buy coins to continue</string>
+
+    <string name="watch">Watch and Earn</string>
+
+    <string name="addcoin_one">+1 COIN</string>
+    <string name="addcoin_three">+3 COIN</string>
+    <string name="addcoin_new_question">+1 NEW QUESTION</string>
+    <string name="addcoin_Half">+1 50:50</string>
+    <string name="addcoin_addtime">+1 +TIME</string>
+    <string name="addcoin_stoptime">+1 STOP TIME</string>
+    <string name="addcoin_all">5 COIN x5 BONUS</string>
+
+    <string name="correctAnswer">CORRECT ANSWER</string>
+    <string name="wrongAnswer">WRONG ANSWER</string>
+    <string name="timeOver">TIME OVER</string>
+    <string name="exit">EXIT</string>
+    <string name="delete">DELETE</string>
+    <string name="bonus">BONUS</string>
+    <string name="coin">COIN</string>
+    <string name="buy">BUY</string>
+    <string name="game">GAME</string>
+
+    <string name="newGame">New Game ?</string>
+    <string name="nextQuestion">Next question ?</string>
+    <string name="bonusAvailable">Bonus available</string>
+    <string name="coinAvailable">Coin available</string>
+    <string name="coinNotFound">No coins left</string>
+    <string name="returnMainMenu">Do you want to return to the main menu ?</string>
+    <string name="closeApplication">Do you want to close the application ?</string>
+    <string name="levelResetQuestion">Do you want to delete the level ?</string>
+    <string name="bonusUnlocked">Bonus unlocked</string>
+    <string name="marketOpen">Marked opened</string>
+    <string name="startGameQuestion">Do you want to start the game ?</string>
+    <string name="customMode">Custom mod</string>
+
+    <string name="tryAgain">Would you like to try again?</string>
+    <string name="confirmStart">Confirm to start</string>
+    <string name="useBonusQuestion">Would you like to use a bonus ?</string>
+
+    <string name="alertTitle3_Coin_2">COINS WILL REDUCE</string>
+    <string name="alertTitle3_Coin_3">COIN WILL END</string>
+    <string name="alertTitle3_Coin_4">JETON WILL NOT BE DECREASED</string>
+    <string name="alertTitle3_Exit">Yes -> Exit</string>
+    <string name="alertTitle3_Restart">The game will be reset</string>
+    <string name="alertTitle3_SelectBonus">Please select a bonus</string>
+    <string name="selectProduct">Please select the product you want to buy</string>
+    <string name="alertTitle3_Game">Yes -> Start</string>
+
+
+    <string name="customleveltitle">Level</string>
+    <string name="customimageandtext">Random</string>
+    <string name="imagequestion">Picture Question</string>
+    <string name="textquestion">Written Question</string>
+
+    <string name="showSpeed">Display Rate</string>
+    <string name="showRange">Impression Count</string>
+
+    <string name="type_color">Color</string>
+    <string name="type_symbol">Symbol</string>
+    <string name="type_vegetable">Vegetable</string>
+    <string name="type_fruit">Fruit</string>
+    <string name="type_animal">Animal</string>
+    <string name="type_vehicle">Vehicle</string>
+    <string name="type_logo">Logo</string>
+    <string name="type_object">Object</string>
+    <string name="type_letter">Letter</string>
+    <string name="type_number">Number</string>
+    <string name="type_mathsymbol">Math Symbol</string>
+    <string name="type_character">Character</string>
+    <string name="type_random">Random</string>
+
+    <string name="mode_level">Level</string>
+    <string name="mode_custom">Custom</string>
+
+    <string name="colors_white">White</string>
+    <string name="colors_black">Black</string>
+    <string name="colors_red">Red</string>
+    <string name="colors_green">Green</string>
+    <string name="colors_blue">Blue</string>
+    <string name="colors_yellow">Yellow</string>
+    <string name="colors_purple">Purple</string>
+    <string name="colors_orange">Orange</string>
+    <string name="colors_gray">Gray</string>
+    <string name="colors_brown">Brown</string>
+
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="difficulty_custom">Custom</string>
+    <string name="thanksForComment">Thanks for your comment :)</string>
+    <string name="available">Available</string>
+
+    <string name="moreAppTitle">Other Apps</string>
+    <string name="isShowMoreApp">Would you like to see our other developed applications?</string>
+    <string name="goToNewTab">An external link will open</string>
+
+
+</resources>

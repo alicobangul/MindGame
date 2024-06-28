@@ -1,0 +1,168 @@
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.mobilesoftware.zekaoyunu.presentation.main.MainStateEnums" />
+
+        <variable name="mainViewModel" type="com.mobilesoftware.zekaoyunu.presentation.main.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_image"
+        tools:context=".presentation.main.MainFragment">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.023"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:contentDescription="TODO"
+                app:srcCompat="@drawable/art_cup" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/txtMainLevelText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:text="@{mainViewModel.state.levelText}"
+                android:textColor="#FFFFFF"
+                android:textSize="36sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearMainCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:onClick="@{() -> mainViewModel.updateStateForDialog(MainStateEnums.SHOPDIALOG)}"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="TODO"
+                android:src="@drawable/user_coin_add_image" />
+
+            <TextView
+                android:id="@+id/txtMainCoinText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@{mainViewModel.state.userCoinText}"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnStartLevelGame"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/shape_main_button_play"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.376"
+            android:onClick="@{() -> mainViewModel.startGameClicked()}"/>
+
+        <Button
+            android:id="@+id/btnCustomGame"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_main_button_custom"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.698"
+            android:onClick="@{() -> mainViewModel.customClicked()}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.873">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnShop"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/shape_main_button_shop"
+                android:onClick="@{() -> mainViewModel.updateStateForDialog(MainStateEnums.SHOPDIALOG)}"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnMoreApp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/shape_main_button_moreapp"
+                android:onClick="@{() -> mainViewModel.updateStateForDialog(MainStateEnums.MOREAPPDIALOG)}"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnComment"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/shape_main_button_comment"
+                android:onClick="@{() -> mainViewModel.updateStateForDialog(MainStateEnums.COMMENTDIALOG)}"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
